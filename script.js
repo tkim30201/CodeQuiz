@@ -15,11 +15,22 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
+  startTimer();
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
 }
+
+function startTimer() {
+  countdown = setInterval(function() {
+    startTime--;
+    timer.textContent = 'Time Remaining: ' + startTime;
+    if (startTime === 0) {
+      endGame();
+    }
+  }, 1000);
+};
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -71,6 +82,7 @@ function setStatusClass(element, correct) {
     element.classList.add('correct')
   } else {
     element.classList.add('wrong')
+    startTime = startTime-10;
   }
 }
 
@@ -120,3 +132,25 @@ const questions = [
     ]
   }
 ]
+
+var countdown;
+var startTime = 60;
+
+function endGame() {
+  clearInterval(countdown)
+  document.getElementById("results").innerHTML = "Time's up!";
+  var userInitials = inputInitials();
+  saveScore(userInitials, startTime)
+}
+
+function saveScore(username, score) {
+  console.log(username, score)
+  var scoreEntry = username + " " + score;
+  score.push(scoreEntry)
+  localStorage.setItem("scores", JSON.stringify(scores))
+}
+
+function showScore() {
+  var valuesFromLocal = localStorage.getItem("scores")
+  var parsedScores = JSON.parse(valuesFromLocal)
+}
