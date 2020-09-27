@@ -78,3 +78,45 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
+
+const questions = [
+  {
+    question: 'In what year did the Cavaliers beat the Warriors in the Finals?',
+    answers: [
+      { text: '2016', correct: true },
+      { text: '2015', correct: false },
+      { text: '2017', correct: false },
+      { text: '2018', correct: false }
+    ]
+  },
+  
+  {
+    question: 'Who was the first pick in the 2009 NBA Draft?',
+    answers: [
+      { text: 'Blake Griffin', correct: true },
+      { text: 'James Harden', correct: false },
+      { text: 'Stephen Curry', correct: false },
+      { text: 'Kyrie Irving', correct: false }
+    ]
+  },
+
+  {
+    question: 'Who won Most Improved Player in 2018?',
+    answers: [
+      { text: 'Victor Oladipo', correct: true },
+      { text: 'Pascal Siakam', correct: false },
+      { text: 'Giannis Antetokounmpo', correct: false },
+      { text: 'Jimmy Butler', correct: false }
+    ]
+  },
+
+  {
+    question: 'What position did Steve Nash play in the NBA?',
+    answers: [
+      { text: 'Point Guard', correct: true },
+      { text: 'Center', correct: false },
+      { text: 'Shooting Guard', correct: false },
+      { text: 'Small Foward', correct: false }
+    ]
+  }
+]
